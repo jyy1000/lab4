@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <input type="number" id="input" >
+    <button style="display: block;" id="submit" onclick="dog()">submit</button>
+    <button  style="display: none;" id="restart" onclick="cccattt()">restart</button>
+    <h1 id="title"></h1>
+    <ol id="List">
+    </ol>    
+    <script>
+        let random = Math.floor(Math.random() * 100) + 1;
+        let i = 0;
+        let submit = document.getElementById('submit');
+        let restart = document.getElementById('restart');
+        let List = document.getElementById('List');
+        let title = document.getElementById('title');
+        function dog(){
+            var num = document.getElementById('input').value;
+            if(num < random){
+               document.getElementById('title').textContent = "too small";
+            }
+            else if(num == random){
+                document.getElementById('title').textContent = "correct";
+                submit.style.display = 'none';
+                restart.style.display = 'block';
+            }
+            else{
+                document.getElementById('title').textContent = "too big";
+            }
+            i++;
+            if(i==10){
+                submit.style.display = 'none';
+                restart.style.display = 'block';
+            }
+            let list = document.createElement('li');
+            list.textContent = num;
+            List.appendChild(list);
+        }
+        function cccattt(){
+            List.innerHTML = '';
+            random = Math.floor(Math.random() * 100) + 1;
+            submit.style.display = 'block';
+            restart.style.display = 'none';
+            i = 0;
+            title.innerHTML = '';
+        }
+
+
+    </script>
+</body>
+</html>
